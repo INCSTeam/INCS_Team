@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tracciamento Spedizione InPost</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .loader-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #4caf50;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-top: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .container {
+      display: none;
+      max-width: 600px;
+      margin: 100px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .status {
+      padding: 10px;
+      background: #ffd700;
+      border-radius: 6px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    .details p {
+      margin: 8px 0;
+    }
+    .progress {
+      margin-top: 20px;
+    }
+    .step {
+      padding: 8px 12px;
+      margin-bottom: 5px;
+      background: #e0e0e0;
+      border-radius: 4px;
+    }
+    .step.completed {
+      background: #4caf50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader-screen" id="loader">
+    <h2>🔎 Stiamo cercando il tuo pacco...</h2>
+    <div class="spinner"></div>
+  </div>
+
+  <div class="container" id="trackingContent">
+    <h2>Tracciamento Spedizione InPost</h2>
+    <p><strong>Codice:</strong> 772001234567890123456</p>
+    <div class="status">🚚 In transito</div>
+
+    <div class="details">
+      <p><strong>Mittente:</strong> INCS_Team</p>
+      <p><strong>Destinatario:</strong> Gianmarco Ferro</p>
+      <p><strong>Locker di consegna:</strong> ITPOZ44059M (Stazione ENI, Pozzallo)</p>
+      <p><strong>Data prevista:</strong> 12 agosto 2025</p>
+    </div>
+
+    <div class="progress">
+      <div class="step completed">✅ Pacco registrato nel sistema</div>
+      <div class="step completed">✅ Ritirato dal corriere</div>
+      <div class="step">🚚 In viaggio verso il locker</div>
+      <div class="step">📦 In consegna al locker</div>
+      <div class="step">📬 Pronto per il ritiro</div>
+    </div>
+  </div>
+
+  <script>
+    // Simula caricamento di 3 secondi prima di mostrare il tracciamento
+    setTimeout(function() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("trackingContent").style.display = "block";
+    }, 3000);
+  </script>
+</body>
+</html>
