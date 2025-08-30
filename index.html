@@ -69,11 +69,13 @@
       color: #333;
     }
     .status {
-      padding: 10px;
-      background: #ffd700;
+      padding: 15px;
       border-radius: 6px;
       font-weight: bold;
       margin: 15px 0;
+      font-size: 20px;
+      text-align: center;
+      color: #ff0000; /* SOLO rosso per lo stato */
     }
     .details p {
       margin: 8px 0;
@@ -84,12 +86,35 @@
     .step {
       padding: 8px 12px;
       margin-bottom: 5px;
-      background: #e0e0e0;
       border-radius: 4px;
+      font-weight: bold;
+      color: #fff; /* testo bianco */
     }
     .step.completed {
-      background: #4caf50;
-      color: white;
+      background: #4caf50; /* verde */
+    }
+    .step.failed {
+      background: #f44336; /* rosso */
+    }
+    .step.pending {
+      background: #e0e0e0; /* grigio chiaro */
+      color: #333; /* testo scuro */
+    }
+    .warning {
+      margin-top: 25px;
+      padding: 15px;
+      background: #000;
+      color: #ff0000;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 20px;
+      text-align: center;
+    }
+    .note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #444;
+      text-align: center;
     }
   </style>
 </head>
@@ -107,21 +132,30 @@
   <div class="container" id="trackingContent">
     <h2>Tracciamento Spedizione InPost</h2>
     <p><strong>Codice:</strong> 772001234567890123456</p>
-    <div class="status">🚚 In transito</div>
+    <div class="status">❌ Spedizione smarrita</div>
 
     <div class="details">
       <p><strong>Mittente:</strong> INCS_Team</p>
       <p><strong>Destinatario:</strong> Denis /////</p>
       <p><strong>Locker di consegna:</strong> Castelfranco Veneto TV 31033</p>
-      <p><strong>Consegna prevista:</strong> 1/2 settembre 2025</p>
+      <p><strong>Consegna prevista:</strong> XX/XX/XXXX</p>
     </div>
 
     <div class="progress">
       <div class="step completed">✅ Pacco registrato nel sistema</div>
       <div class="step completed">✅ Ritirato dal corriere</div>
       <div class="step completed">✅ In viaggio verso il locker</div>
-      <div class="step">📦 In consegna al locker</div>
-      <div class="step">📬 Pronto per il ritiro</div>
+      <div class="step failed">📦 In consegna al locker</div>
+      <div class="step pending">📬 Pronto per il ritiro</div>
+    </div>
+
+    <div class="warning">
+      ❌ Non è previsto alcun rimborso
+    </div>
+    <div class="note">
+      La spedizione è stata dichiarata <strong>smarrita</strong>.  
+      Non sono previsti rimborsi né sostituzioni per questo ordine.  
+      Per eventuali chiarimenti si prega di contattare il mittente.
     </div>
   </div>
 
